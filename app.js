@@ -1,9 +1,20 @@
 // Set up the server
 const express = require("express");
-const db = require('./db/db_connection');
+const db = require('./db/db_pool');
 const app = express();
-const port = 3000;
+//Configure Express to use certain HTTP headers for security
+//Explicitly set the CSP to allow certain sources
+app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", 'cdnjs.cloudflare.com']
+      }
+    }
+  }));
+const port = process.env.PORT || 8080;
 const logger = require("morgan");
+const helmet = require("helmet")
 
 const DEBUG = true;
 
