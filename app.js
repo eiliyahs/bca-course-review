@@ -1,6 +1,7 @@
 // Set up the server
 const express = require("express");
 const db = require('./db/db_pool');
+const helmet = require("helmet")
 const app = express();
 //Configure Express to use certain HTTP headers for security
 //Explicitly set the CSP to allow certain sources
@@ -14,7 +15,6 @@ app.use(helmet({
   }));
 const port = process.env.PORT || 8080;
 const logger = require("morgan");
-const helmet = require("helmet")
 
 const DEBUG = true;
 
