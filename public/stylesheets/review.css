@@ -1,0 +1,14 @@
+body {
+    background-color: #D7C96F;
+}
+
+.filter {
+    background-color: white;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.filter-content {
+    padding: 20px;
+    margin: 20px;
+}
